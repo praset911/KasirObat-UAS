@@ -19,6 +19,14 @@ public class data_detTransaksi {
         }
     }
 
+    public void view()
+    {
+        for(entity_detTransaksi detTransaksi : detTr){
+            detTransaksi.cetak();
+
+        }
+    }
+
     public int getTotalbyId(int idTransaksi)
     {
         int total = 0;

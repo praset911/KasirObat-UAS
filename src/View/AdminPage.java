@@ -1,6 +1,7 @@
 package View;
 import Controller.LoginController;
 import Model.data_kasir;
+import Model.data_transaksi;
 import entity.entity_kasir;
 
 import java.util.Scanner;
@@ -18,10 +19,10 @@ public class AdminPage {
             String pass = input.nextLine();
             status = authentication.loginAdmin(nip, pass);
             if (status) {
-                System.out.println("Login Berhasil");
+                System.out.println("LOGIN BERHASIL");
                 adminHomePage();
             } else {
-                System.out.println("Login Gagal");
+                System.out.println("LOGIN GAGAL");
             }
         }while(status==false);
     }
@@ -35,7 +36,8 @@ public class AdminPage {
                     2.HAPUS STAFF
                     3.LIHAT STAFF
                     4.EDIT PASS STAFF
-                    5.BACK
+                    5.DATA PENJUALAN
+                    6.BACK
                     -----------------
                     INPUT  : """);
             pilih = input.nextInt();
@@ -45,22 +47,25 @@ public class AdminPage {
                 case 2 ->hapusStaff();
                 case 3 ->lihatStaff();
                 case 4 ->editPassStaff();
+                case 5 ->dataPenjualan();
+                case 6 -> System.out.println("BACK");
+                default -> System.out.println("INPUTAN TIDAK ADA");
             }
-        }while (pilih!=5);
+        }while (pilih!=6);
     }
 
     public void tambahStaff(){
-        System.out.println("NAMA : ");
+        System.out.print("NAMA : ");
         String nama = input.nextLine();
-        System.out.println("NIP  : ");
+        System.out.print("NIP  : ");
         String nip = input.nextLine();
-        System.out.println("PASS : ");
+        System.out.print("PASS : ");
         String pass = input.nextLine();
         data_kasir.createAccount(nama,nip,pass);
     }
 
     public void hapusStaff(){
-        System.out.println("NIP STAFF YANG AKAN DI HAPUS : ");
+        System.out.print("NIP STAFF YANG AKAN DI HAPUS : ");
         String nip = input.nextLine();
         entity_kasir cariNipStaff = data_kasir.cariDataKasir(nip);
         if(cariNipStaff!=null){
@@ -77,11 +82,11 @@ public class AdminPage {
     }
 
     public void editPassStaff(){
-        System.out.println("MASUKKAN NIP YANG AKAN DI EDIT : ");
+        System.out.print("MASUKKAN NIP YANG AKAN DI EDIT : ");
         String nip = input.nextLine();
         entity_kasir cariNipStaff = data_kasir.cariDataKasir(nip);
         if(cariNipStaff!=null){
-            System.out.println("MASUKKAN NEW PASSWORD : ");
+            System.out.print("MASUKKAN NEW PASSWORD : ");
             String pass = input.nextLine();
             cariNipStaff.setPassword(pass);
             System.out.println("PASSWORD STAFF < " + cariNipStaff.getNama() + " > BERHASIL DI EDIT");
@@ -89,4 +94,9 @@ public class AdminPage {
             System.out.println("DATA TIDAK DITEMUKAN");
         }
     }
+
+    public void dataPenjualan(){
+        StaffPage.DB_DetTr.view();
+    }
+
 }

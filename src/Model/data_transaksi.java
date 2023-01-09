@@ -17,15 +17,21 @@ public class data_transaksi {
         this.DBtransaksi.get(this.idIncrement-1).setTotal(total);
     }
 
-    public void cetak(int id)
+    public void cetakById(int id)
     {
         for(entity_transaksi entity_transaksi : DBtransaksi){
-            if(id==entity_transaksi.getId_transaksi()){
-                entity_transaksi.cetak();
-            }
+                if(id==entity_transaksi.getId_transaksi()) {
+                    entity_transaksi.cetak();
+                }
         }
     }
 
+    public void cetak()
+    {
+        for(entity_transaksi entity_transaksi : DBtransaksi){
+            entity_transaksi.cetak();
+        }
+    }
     public int getIdIncrement() {
         return idIncrement-1;
     }

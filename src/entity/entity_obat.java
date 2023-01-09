@@ -24,7 +24,7 @@ public class entity_obat extends entity_barang{
 
     public void cetak(){
         super.cetak();
-        System.out.println("JUMLAH : "+ getJumlah());
+        System.out.println("STOK        : "+ getJumlah());
         System.out.println("KODE BARANG : "+getKodeBarang());
     }
 }

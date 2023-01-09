@@ -8,12 +8,13 @@ public class data_obat {
     static ArrayList<entity_obat> obat = new ArrayList<>();
 
     public static void initialObat(){
-        obat.add(new entity_obat("ctm",1,1,001));
-        obat.add(new entity_obat("antimo",2,2,002));
+        obat.add(new entity_obat("ctm",1500,100,001));
+        obat.add(new entity_obat("antimo",2500,100,002));
     }
 
     public static void view(){
         for (entity_obat obat : obat){
+            System.out.println();
             obat.cetak();
         }
     }

@@ -23,6 +23,7 @@ public class StartMenu {
             switch (pilih) {
                 case 1 -> loginSelect();
                 case 2 -> exit();
+                default -> System.out.println("INPUTAN TIDAK ADA");
             }
         }while(pilih!=2);
     }
@@ -42,6 +43,8 @@ public class StartMenu {
             switch (pilih) {
                 case 1 -> staff.LoginStaff();
                 case 2 -> admin.LoginAdmin();
+                case 3 -> System.out.println("BACK");
+                default -> System.out.println("INPUTAN TIDAK ADA");
             }
         }while(pilih!=3);
     }
